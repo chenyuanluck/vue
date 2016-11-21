@@ -1,0 +1,21 @@
+{
+  "name": "vue demo",
+  "version": "1.0.0",
+  "description": "vue.js demo",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenyuanluck/vue.git"
+  },
+  "author": "chenyuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chenyuanluck/vue/issues"
+  },
+  "homepage": "https://github.com/chenyuanluck/vue#readme",
+  "devDependencies": {
+  }
+}
