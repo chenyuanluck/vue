@@ -9,7 +9,7 @@ module.exports = {
     debug: true,
     output: {
         path: path.join(__dirname, 'main'),                         // 打包输出的路径
-        filename: 'main.js',                                      // 打包输出的文件名
+        filename: 'main.js',                                        // 打包输出的文件名
         publicPath: './main/'                                       // html引用路径
     },
     module: {
@@ -30,5 +30,10 @@ module.exports = {
     },
     plugins: [
         extractSCSS
-    ]
+    ],
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.js'
+        }
+    }
 };
