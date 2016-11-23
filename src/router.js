@@ -10,6 +10,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Index from "./views/index";
+
 // 如果使用模块化机制编程
 Vue.use(VueRouter);
 
@@ -24,9 +26,8 @@ const routes = [
         path: '/bar',
         component: {template: '<div>bar</div>'}
     }, {
-        name: "user",
-        path: '/user',
-        component: {template: '<div>User</div>'}
+        path: '/index',
+        component: Index
     }
 ];
 
