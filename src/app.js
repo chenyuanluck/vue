@@ -10,16 +10,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+// 如果使用模块化机制编程， 要调用 Vue.use(VueRouter)
 Vue.use(VueRouter);
 
-Vue.config.debug = true;
-
-// 0. 如果使用模块化机制编程， 要调用 Vue.use(VueRouter)
-
 // 1. 定义（路由）组件。
-// 可以从其他文件 import 进来
 const Foo = {template: '<div>foo</div>'};
 const Bar = {template: '<div>bar</div>'};
+const User = {template: '<div>User</div>'};
 
 // 2. 定义路由
 // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -27,8 +24,19 @@ const Bar = {template: '<div>bar</div>'};
 // 或者，只是一个组件配置对象。
 // 我们晚点再讨论嵌套路由。
 const routes = [
-    {name: "foo", path: '/foo', component: Foo},
-    {name: "bar", path: '/bar', component: Bar}
+    {
+        name: "foo",
+        path: '/foo',
+        component: Foo
+    }, {
+        name: "bar",
+        path: '/bar',
+        component: Bar
+    }, {
+        name: "user",
+        path: '/user',
+        component: User
+    }
 ];
 
 // 3. 创建 router 实例，然后传 `routes` 配置

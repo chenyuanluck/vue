@@ -5,7 +5,7 @@ let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let extractSCSS = new ExtractTextPlugin('stylesheets/[name].css');
 module.exports = {
     devtool: 'inline-source-map',                                   // 启用source-map
-    entry: './src/scripts/main.js',                                 // 入口文件
+    entry: './src/app.js',                                          // 入口文件
     debug: true,
     output: {
         path: path.join(__dirname, 'main'),                         // 打包输出的路径
@@ -25,6 +25,9 @@ module.exports = {
                 // query: {
                 //     presets: ['es2015']
                 // }
+            }, {
+                test: /\.vue$/,
+                loader: 'vue'
             }
         ]
     },
