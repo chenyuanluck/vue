@@ -7,8 +7,11 @@
  * 创建日期: 2016/11/21
  * 创建时间: 14:26
  */
-import Vue from "vue";
-import router from "./router";                  // 导入路由配置对象
+import Vue from "vue";                          // vue框架包
+import VueRouter from "vue-router";             // 路由插件
+import routes from "./router";                  // 导入路由配置对象
 
-// 创建和挂载根实例
-const app = new Vue({router}).$mount('#app');
+Vue.use(VueRouter);                              // 如果使用模块化机制编程
+
+const router = new VueRouter({routes});         // 实例化一个VueRouter路由对象
+const app = new Vue({router}).$mount('#app');   // 创建和挂载根实例

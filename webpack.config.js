@@ -16,24 +16,13 @@ module.exports = {
         loaders: [
             {
                 test: /\.scss$/,
-                // loader: extractSCSS.extract(['css?sourceMap', 'sass?sourceMap'])
                 loader: 'style!css?sourceMap!sass?sourceMap'
             }, {
                 test: /\.(es6)|(js)$/,
                 loader: 'babel?presets[]=es2015'
-                // plugins: ['babel-plugin-components'],
-                // query: {
-                //     presets: ['es2015']
-                // }
             }, {
                 test: /\.vue$/,
                 loader: 'vue'
-            },{
-                test: /\.jsx?$/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015']
-                }
             }
         ]
     },
@@ -42,7 +31,7 @@ module.exports = {
     ],
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.js'
+            'vue$': 'vue/dist/vue.min.js'
         }
     }
 };
