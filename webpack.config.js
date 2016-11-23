@@ -28,6 +28,12 @@ module.exports = {
             }, {
                 test: /\.vue$/,
                 loader: 'vue'
+            },{
+                test: /\.jsx?$/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015']
+                }
             }
         ]
     },

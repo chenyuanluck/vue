@@ -10,10 +10,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Index from "./views/index";
-
 // 如果使用模块化机制编程
 Vue.use(VueRouter);
+
+let IndexView = require("./views/index.vue");
+console.info(IndexView);
 
 // 2. 定义路由
 const routes = [
@@ -27,7 +28,7 @@ const routes = [
         component: {template: '<div>bar</div>'}
     }, {
         path: '/index',
-        component: Index
+        component: IndexView
     }
 ];
 
