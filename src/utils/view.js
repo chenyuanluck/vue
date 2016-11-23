@@ -8,8 +8,18 @@
  * 创建时间: 16:21
  */
 class View {
-    constructor() {
-        console.log(this);
+    constructor(view) {
+        if(typeof(this.data)==="function") {
+            view.data = this.data;
+        }
+        if(typeof(this.created)==="function") {
+            view.created = this.created;
+        }
+        this.view = view;
+    }
+
+    getInstance() {
+        return this.view;
     }
 }
 

@@ -7,16 +7,23 @@
  * 创建日期: 2016/11/23
  * 创建时间: 16:27
  */
-
+import View from "../utils/view";
 var UserView = require("../views/user.vue");
 
-UserView.data = function () {
-    return {
-        name: "UserView"
+class User extends View {
+    constructor(view) {
+        super(view);
     }
-};
-UserView.created = function () {
-    console.log('================UserView Created================');
-};
 
-export default UserView;
+    data() {
+        return {
+            name: "UserView"
+        }
+    };
+
+    created() {
+        console.log('================UserView Created================');
+    };
+}
+
+export default new User(UserView).getInstance();
