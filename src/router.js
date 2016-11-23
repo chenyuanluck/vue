@@ -8,6 +8,7 @@
  * 创建时间: 10:11
  */
 let IndexView = require("./views/index.vue");           // 引入indexVue
+import User from "./scripts/user";
 
 // 定义路由
 const routes = [
@@ -16,12 +17,12 @@ const routes = [
         path: '/foo',
         component: {template: '<div>foo</div>'}
     }, {
-        name: "bar",
-        path: '/bar',
-        component: {template: '<div>bar</div>'}
-    }, {
         path: '/index',
         component: IndexView
+    }
+    , {
+        path: '/user',
+        component: User
     }
 ];
 
