@@ -19,8 +19,13 @@ class View {
         if (typeof(this.data) === "function") {                 // 提取子类的data方法
             view.data = this.data;
         }
-        if (typeof(this.created) === "function") {              // 提取字类的created方法
+
+        if (typeof(this.created) === "function") {              // 提取子类的created方法
             view.created = this.created;
+        }
+
+        if (typeof(this.watch) === "function") {                // 提取子类的watch方法结果
+            view.watch = this['watch']();
         }
 
         for (let k in view) {                                    //  将Vue模板对象的方法拷贝到View实例上

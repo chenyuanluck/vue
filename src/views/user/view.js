@@ -15,13 +15,28 @@ class UserView extends View {
         super(view);
     }
 
-    data() {
+    watch() {
         return {
-            name: "UserView"
+            $route: function (to, from) {
+                console.log(to);
+                console.log(from);
+            }
         };
     }
 
+    data() {
+        let data = {
+            name: "UserView",
+            message: "这是一条测试消息"
+        };
+        setInterval(()=> {
+            data.message += "@";
+        }, 1000);
+        return data;
+    }
+
     created() {
+        console.log(this);
         console.log('=====UserView Created=====');
         return this;
     }

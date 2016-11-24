@@ -7,26 +7,31 @@
  * 创建日期: 2016/11/23
  * 创建时间: 10:11
  */
-let IndexView = require("./views/index.vue");           // 引入indexVue
-import UserView from "./views/user/view";              // 引入User视图
-
-console.log(UserView);
-
-console.log(UserView.data());
+let IndexView = require("./views/index.vue");                // 引入indexVue
+import UserView from "./views/user/view";                   // 引入User视图
+import UserViewMember from "./views/user/member/view";      // 引入UserMember视图
 
 // 定义路由
 const routes = [
     {
         name: "foo",
         path: '/foo',
-        component: {template: '<div>foo</div>'}
+        component: {
+            template: '<div>foo</div>'
+        }
     }, {
         path: '/index',
         component: IndexView
     }
     , {
         path: '/user/:id',
-        component: UserView
+        component: UserView,
+        children:[
+            {
+                path: "member",
+                component: UserViewMember
+            }
+        ]
     }
 ];
 
