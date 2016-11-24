@@ -29,14 +29,18 @@ class UserView extends View {
             name: "UserView",
             message: "这是一条测试消息"
         };
-        setInterval(()=> {
+        let index = 0;
+        let t = setInterval(()=> {
             data.message += "@";
-        }, 1000);
+            index++;
+            if (index >= 10) {
+                clearInterval(t);
+            }
+        }, 200);
         return data;
     }
 
     created() {
-        console.log(this);
         console.log('=====UserView Created=====');
         return this;
     }

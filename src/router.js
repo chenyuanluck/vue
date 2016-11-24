@@ -7,6 +7,7 @@
  * 创建日期: 2016/11/23
  * 创建时间: 10:11
  */
+import VueRouter from "vue-router";                         // 路由插件
 let IndexView = require("./views/index.vue");                // 引入indexVue
 import UserView from "./views/user/view";                   // 引入User视图
 import UserViewMember from "./views/user/member/view";      // 引入UserMember视图
@@ -15,25 +16,32 @@ import UserViewMember from "./views/user/member/view";      // 引入UserMember�
 const routes = [
     {
         name: "foo",
-        path: '/foo',
+        path: "/foo",
+        // redirect: "index",
         component: {
-            template: '<div>foo</div>'
+            template: "<div>foo</div>"
         }
     }, {
-        path: '/index',
+        name: "index",
+        path: "/index",
         component: IndexView
-    }
-    , {
-        path: '/user/:id',
+    }, {
+        name: "user",
+        path: "/user/:id",
         component: UserView,
-        children:[
+        children: [
             {
                 path: "member",
+                component: UserViewMember
+            }, {
+                path: "",
                 component: UserViewMember
             }
         ]
     }
 ];
 
-export default routes;
-export {routes};
+const router = new VueRouter({routes});                     // 实例化一个VueRouter路由对象
+
+export default router;
+export {router};
