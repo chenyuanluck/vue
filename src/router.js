@@ -10,6 +10,10 @@
 let IndexView = require("./views/index.vue");           // 引入indexVue
 import UserView from "./views/user/view";              // 引入User视图
 
+console.log(UserView);
+
+console.log(UserView.data());
+
 // 定义路由
 const routes = [
     {
