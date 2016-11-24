@@ -8,7 +8,7 @@
  * 创建时间: 10:11
  */
 let IndexView = require("./views/index.vue");           // 引入indexVue
-import User from "./scripts/user";
+import UserView from "./views/user/view";              // 引入User视图
 
 // 定义路由
 const routes = [
@@ -21,8 +21,8 @@ const routes = [
         component: IndexView
     }
     , {
-        path: '/user',
-        component: User
+        path: '/user/:id',
+        component: UserView
     }
 ];
 
