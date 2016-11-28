@@ -7,43 +7,36 @@
  * 创建日期: 2016/11/23
  * 创建时间: 16:27
  */
-import View from "../../utils/view";                // 导入视图父类
-let UserTemplate = require("./view.vue");            // 导入视图模板
-
-class UserView extends View {
-    constructor(view) {
-        super(view);
+let vue = require("./view.vue");
+// 对象监听
+vue.watch = {
+    $route: function (to, from) {
+        console.log(to);
+        console.log(from);
     }
+};
 
-    watch() {
-        return {
-            $route: function (to, from) {
-                console.log(to);
-                console.log(from);
-            }
-        };
+// 数据初始化
+vue.data = function () {
+    return {
+        name: null,
+        message: "Hello World!"
     }
+};
 
-    data() {
-        let data = {
-            name: "UserView",
-            message: "这是一条测试消息"
-        };
-        let index = 0;
-        let t = setInterval(()=> {
-            data.message += "@";
-            index++;
-            if (index >= 10) {
-                clearInterval(t);
-            }
-        }, 200);
-        return data;
+// 组件初始化事件
+vue.created = function () {
+    console.log(this);
+    this["fetchData"]();
+    console.log('=====UserView Created=====');
+};
+
+vue.methods = {
+    fetchData () {
+        setTimeout(()=> {
+            this.name = "User Created";
+        }, 2000);
     }
+};
 
-    created() {
-        console.log('=====UserView Created=====');
-        return this;
-    }
-}
-
-export default new UserView(UserTemplate);
+export default vue;

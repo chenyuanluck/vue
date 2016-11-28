@@ -8,29 +8,35 @@
  * 创建时间: 16:21
  */
 class View {
-    constructor(view) {
-        if (view === undefined) {
-            throw new Error("View类构造方法的参数不能为空");
-        }
-        if (!(typeof(view) == "object" && typeof(view.render) == "function")) {
-            throw new TypeError("View类构造方法的参数必须为vue模板对象");
-        }
-
-        if (typeof(this.data) === "function") {                 // 提取子类的data方法
-            view.data = this.data;
-        }
-
-        if (typeof(this.created) === "function") {              // 提取子类的created方法
-            view.created = this.created;
-        }
-
-        if (typeof(this.watch) === "function") {                // 提取子类的watch方法结果
-            view.watch = this['watch']();
-        }
-
+    constructor(view = {}) {
         for (let k in view) {                                    //  将Vue模板对象的方法拷贝到View实例上
             if (view.hasOwnProperty(k))
                 this[k] = view[k];
+        }
+        this.methods = {};
+        this.methods.datas = {};
+    }
+
+    config(configMethod) {
+        let config = new configMethod();
+        for (let k in config) {
+            if (config.hasOwnProperty(k)) {
+                this.setAttribute(k, config[k]);
+            }
+        }
+        this['AAAAAAA'] = "AAAAAAAAAAA";
+        this.methods['BBBBBBB'] = "BBBBBBB";
+        console.log(this);
+    }
+
+    setAttribute(name, value) {
+        if (name == "created" || name == "watch"|| name == "data") {
+            this[name] = value;
+            return;
+        }
+
+        if (typeof(value) == "function") {
+            this.methods[name] = value;
         }
     }
 }

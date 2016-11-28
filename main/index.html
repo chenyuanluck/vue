@@ -6,13 +6,14 @@
 </head>
 <body>
 <div id="app">
-    <p>
+    <div id="menu">
         <!-- 使用 router-link 组件来导航. -->
         <router-link to="/foo">Foo</router-link>
+        <router-link to="/tag">Tag</router-link>
         <router-link to="/user/UserTemplate">User</router-link>
         <router-link to="/index">Index</router-link>
         <router-link to="/user/UserTemplate/member">User-Member</router-link>
-    </p>
+    </div>
     <!-- 路由出口 -->
     <router-view></router-view>
 </div>

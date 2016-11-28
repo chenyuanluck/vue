@@ -8,8 +8,9 @@
  * 创建时间: 10:11
  */
 import VueRouter from "vue-router";                         // 路由插件
-let IndexView = require("./views/index.vue");                // 引入indexVue
+import IndexView from "./views/index/view";                 // 引入indexVue
 import UserView from "./views/user/view";                   // 引入User视图
+import TagView from "./views/tag/view";                     // 引入标签视图
 import UserViewMember from "./views/user/member/view";      // 引入UserMember视图
 
 // 定义路由
@@ -38,6 +39,10 @@ const routes = [
                 component: UserViewMember
             }
         ]
+    }, {
+        name: "tag",
+        path: "/tag",
+        component: TagView
     }
 ];
 
